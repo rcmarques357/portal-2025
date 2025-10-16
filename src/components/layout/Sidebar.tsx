@@ -1,7 +1,7 @@
 import React from 'react';
 import { 
-  BarChart, PieChart, BarChart3, Wallet, LineChart, Globe, 
-  DollarSign, Settings, ChevronRight, ChevronLeft, Home
+  BarChart, PieChart, Globe, Wallet, LineChart,
+  Settings, ChevronRight, ChevronLeft, Home, Database, Wrench
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
@@ -31,39 +31,39 @@ export function Sidebar({ isCollapsed, onToggle, className }: SidebarProps) {
       href: '/',
     },
     {
-      title: 'Stocks',
+      title: 'Asset Inventory',
       icon: BarChart,
-      href: '/stocks',
+      href: '/assets',
     },
     {
-      title: 'Markets',
-      icon: BarChart3,
-      href: '/markets',
-    },
-    {
-      title: 'Currencies',
-      icon: DollarSign,
-      href: '/currencies',
-    },
-    {
-      title: 'Global',
+      title: 'GIS Integration',
       icon: Globe,
-      href: '/global',
+      href: '/gis',
     },
     {
-      title: 'Portfolio',
+      title: 'SAP Data',
+      icon: Database,
+      href: '/sap',
+    },
+    {
+      title: 'Maintenance',
+      icon: Wrench,
+      href: '/maintenance',
+    },
+    {
+      title: 'Work Orders',
       icon: Wallet,
-      href: '/portfolio',
+      href: '/workorders',
     },
     {
-      title: 'Performance',
+      title: 'Analytics',
       icon: LineChart,
-      href: '/performance',
+      href: '/analytics',
     },
     {
-      title: 'Analysis',
+      title: 'Reports',
       icon: PieChart,
-      href: '/analysis',
+      href: '/reports',
     },
     {
       title: 'Settings',
@@ -139,9 +139,9 @@ export function Sidebar({ isCollapsed, onToggle, className }: SidebarProps) {
           "transition-opacity duration-200 rounded-md bg-sidebar-accent/50 p-2 text-xs text-sidebar-accent-foreground",
           isCollapsed ? "opacity-0" : "opacity-100"
         )}>
-          <p className="font-medium">Market Status</p>
-          <p>Markets are open</p>
-          <p className="text-[10px]">Closes in 3h 45m</p>
+          <p className="font-medium">System Status</p>
+          <p>All systems operational</p>
+          <p className="text-[10px]">Last sync: 2 min ago</p>
         </div>
       </div>
     </aside>

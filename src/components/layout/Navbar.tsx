@@ -33,7 +33,7 @@ export function Navbar({ className }: NavbarProps) {
             <Search className="h-4 w-4 mr-2" />
             <Input 
               type="search" 
-              placeholder="Search stocks, indices..." 
+              placeholder="Search equipment, locations..." 
               className="h-9 w-[200px] lg:w-[280px] bg-transparent border-none px-0 py-0 shadow-none focus-visible:ring-0 placeholder:text-muted-foreground"
             />
           </div>
@@ -56,20 +56,20 @@ export function Navbar({ className }: NavbarProps) {
               <DropdownMenuSeparator />
               <DropdownMenuItem>
                 <div className="flex flex-col gap-1">
-                  <p className="text-sm font-medium">Market Alert</p>
-                  <p className="text-xs text-muted-foreground">AAPL reached your target price of $180</p>
+                  <p className="text-sm font-medium">Critical Alert</p>
+                  <p className="text-xs text-muted-foreground">Transformer TX-4523 requires immediate inspection</p>
                 </div>
               </DropdownMenuItem>
               <DropdownMenuItem>
                 <div className="flex flex-col gap-1">
-                  <p className="text-sm font-medium">Portfolio Update</p>
-                  <p className="text-xs text-muted-foreground">Your portfolio gained 2.5% today</p>
+                  <p className="text-sm font-medium">Data Sync Complete</p>
+                  <p className="text-xs text-muted-foreground">GIS-SAP integration updated 15,234 records</p>
                 </div>
               </DropdownMenuItem>
               <DropdownMenuItem>
                 <div className="flex flex-col gap-1">
-                  <p className="text-sm font-medium">News Alert</p>
-                  <p className="text-xs text-muted-foreground">Breaking: Fed announces rate decision</p>
+                  <p className="text-sm font-medium">Maintenance Reminder</p>
+                  <p className="text-xs text-muted-foreground">4 work orders scheduled for tomorrow</p>
                 </div>
               </DropdownMenuItem>
             </DropdownMenuContent>
