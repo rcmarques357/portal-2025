@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { 
   BarChart, PieChart, BarChart3, Wallet, LineChart, Globe, 
@@ -8,6 +7,7 @@ import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Link, useLocation } from 'react-router-dom';
+import logo from '@/assets/logo.png';
 
 interface SidebarProps {
   isCollapsed: boolean;
@@ -78,10 +78,18 @@ export function Sidebar({ isCollapsed, onToggle, className }: SidebarProps) {
       isCollapsed ? "w-16" : "w-64",
       className
     )}>
-      <div className="flex h-16 items-center justify-center border-b border-sidebar-border">
+      <div className="flex h-16 items-center justify-center border-b border-sidebar-border gap-2">
+        <img 
+          src={logo} 
+          alt="Asset Data Hub Logo" 
+          className={cn(
+            "transition-all duration-200",
+            isCollapsed ? "h-8 w-8" : "h-8 w-8"
+          )}
+        />
         <h2 className={cn(
           "font-semibold tracking-tight transition-opacity duration-200",
-          isCollapsed ? "opacity-0" : "opacity-100"
+          isCollapsed ? "opacity-0 w-0" : "opacity-100"
         )}>
           Asset Data Hub
         </h2>
