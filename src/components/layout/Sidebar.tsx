@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { 
   BarChart, PieChart, Globe, Wallet, LineChart,
-  Settings, ChevronRight, ChevronLeft, Home, Database, Wrench
+  Settings, ChevronRight, ChevronLeft, Home, Database, Wrench, FileText, ChevronDown
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
@@ -19,10 +19,12 @@ interface NavItem {
   title: string;
   icon: React.ElementType;
   href: string;
+  subItems?: { title: string; href: string }[];
 }
 
 export function Sidebar({ isCollapsed, onToggle, className }: SidebarProps) {
   const location = useLocation();
+  const [expandedItems, setExpandedItems] = useState<string[]>([]);
   
   const navItems = [
     {
@@ -64,6 +66,16 @@ export function Sidebar({ isCollapsed, onToggle, className }: SidebarProps) {
       title: 'Reports',
       icon: PieChart,
       href: '/reports',
+    },
+    {
+      title: 'Documentation',
+      icon: FileText,
+      href: '/documentation',
+      subItems: [
+        { title: 'Business Process Manuals', href: '/documentation#bpm' },
+        { title: 'Governance & Standards', href: '/documentation#governance' },
+        { title: 'Processes & Procedures', href: '/documentation#procedures' }
+      ]
     },
     {
       title: 'Settings',
@@ -111,24 +123,63 @@ export function Sidebar({ isCollapsed, onToggle, className }: SidebarProps) {
         <nav className="grid gap-1 px-2">
           {navItems.map((item, index) => {
             const isActive = location.pathname === item.href;
+            const isExpanded = expandedItems.includes(item.title);
+            const hasSubItems = item.subItems && item.subItems.length > 0;
+            
             return (
-              <Link
-                key={index}
-                to={item.href}
-                className={cn(
-                  "flex items-center gap-3 rounded-md px-3 py-2 transition-colors hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
-                  isActive ? "bg-sidebar-accent text-sidebar-accent-foreground" : "text-sidebar-foreground",
-                  isCollapsed && "justify-center px-0"
+              <div key={index}>
+                <div
+                  className={cn(
+                    "flex items-center gap-3 rounded-md px-3 py-2 transition-colors hover:bg-sidebar-accent hover:text-sidebar-accent-foreground cursor-pointer",
+                    isActive ? "bg-sidebar-accent text-sidebar-accent-foreground" : "text-sidebar-foreground",
+                    isCollapsed && "justify-center px-0"
+                  )}
+                  onClick={() => {
+                    if (hasSubItems && !isCollapsed) {
+                      setExpandedItems(prev =>
+                        prev.includes(item.title)
+                          ? prev.filter(t => t !== item.title)
+                          : [...prev, item.title]
+                      );
+                    }
+                  }}
+                >
+                  <Link
+                    to={item.href}
+                    className="flex items-center gap-3 flex-1"
+                    onClick={(e) => hasSubItems && !isCollapsed && e.preventDefault()}
+                  >
+                    <item.icon className={cn("h-5 w-5 shrink-0")} />
+                    <span className={cn(
+                      "text-sm font-medium transition-opacity duration-200",
+                      isCollapsed ? "opacity-0 w-0" : "opacity-100"
+                    )}>
+                      {item.title}
+                    </span>
+                  </Link>
+                  {hasSubItems && !isCollapsed && (
+                    <ChevronDown className={cn(
+                      "h-4 w-4 transition-transform duration-200",
+                      isExpanded && "rotate-180"
+                    )} />
+                  )}
+                </div>
+                
+                {hasSubItems && isExpanded && !isCollapsed && (
+                  <div className="ml-8 mt-1 space-y-1">
+                    {item.subItems.map((subItem, subIndex) => (
+                      <Link
+                        key={subIndex}
+                        to={subItem.href}
+                        className="flex items-center gap-2 rounded-md px-3 py-1.5 text-sm transition-colors hover:bg-sidebar-accent/50 hover:text-sidebar-accent-foreground text-sidebar-foreground/80"
+                      >
+                        <div className="h-1.5 w-1.5 rounded-full bg-sidebar-foreground/40" />
+                        {subItem.title}
+                      </Link>
+                    ))}
+                  </div>
                 )}
-              >
-                <item.icon className={cn("h-5 w-5 shrink-0")} />
-                <span className={cn(
-                  "text-sm font-medium transition-opacity duration-200",
-                  isCollapsed ? "opacity-0 w-0" : "opacity-100"
-                )}>
-                  {item.title}
-                </span>
-              </Link>
+              </div>
             );
           })}
         </nav>

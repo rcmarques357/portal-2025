@@ -15,6 +15,7 @@ import Performance from "./pages/Performance";
 import Analysis from "./pages/Analysis";
 import Settings from "./pages/Settings";
 import Assets from "./pages/Assets";
+import Documentation from "./pages/Documentation";
 
 const queryClient = new QueryClient();
 
@@ -36,6 +37,7 @@ const App = () => (
             <Route path="/performance" element={<Performance />} />
             <Route path="/analysis" element={<Analysis />} />
             <Route path="/settings" element={<Settings />} />
+            <Route path="/documentation" element={<Documentation />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
