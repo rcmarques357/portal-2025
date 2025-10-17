@@ -14,6 +14,7 @@ import Portfolio from "./pages/Portfolio";
 import Performance from "./pages/Performance";
 import Analysis from "./pages/Analysis";
 import Settings from "./pages/Settings";
+import Assets from "./pages/Assets";
 
 const queryClient = new QueryClient();
 
@@ -26,6 +27,7 @@ const App = () => (
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/assets" element={<Assets />} />
             <Route path="/stocks" element={<Stocks />} />
             <Route path="/markets" element={<Markets />} />
             <Route path="/currencies" element={<Currencies />} />
