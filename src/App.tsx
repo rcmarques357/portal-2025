@@ -16,6 +16,7 @@ import Analysis from "./pages/Analysis";
 import Settings from "./pages/Settings";
 import Assets from "./pages/Assets";
 import Documentation from "./pages/Documentation";
+import GovernanceStandards from "./pages/GovernanceStandards";
 
 const queryClient = new QueryClient();
 
@@ -38,6 +39,7 @@ const App = () => (
             <Route path="/analysis" element={<Analysis />} />
             <Route path="/settings" element={<Settings />} />
             <Route path="/documentation" element={<Documentation />} />
+            <Route path="/documentation/governance" element={<GovernanceStandards />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
