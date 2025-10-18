@@ -15,11 +15,22 @@ interface SidebarProps {
   className?: string;
 }
 
+interface SubSubItem {
+  title: string;
+  href: string;
+}
+
+interface SubItem {
+  title: string;
+  href: string;
+  subItems?: SubSubItem[];
+}
+
 interface NavItem {
   title: string;
   icon: React.ElementType;
   href: string;
-  subItems?: { title: string; href: string }[];
+  subItems?: SubItem[];
 }
 
 export function Sidebar({ isCollapsed, onToggle, className }: SidebarProps) {
@@ -28,9 +39,23 @@ export function Sidebar({ isCollapsed, onToggle, className }: SidebarProps) {
   
   const navItems = [
     {
-      title: 'Dashboard',
+      title: 'Dashboards',
       icon: Home,
-      href: '/',
+      href: '/dashboards',
+      subItems: [
+        { 
+          title: 'Asset Data Process', 
+          href: '/dashboards/asset-data-process'
+        },
+        { 
+          title: 'Asset Data Quality', 
+          href: '/dashboards/asset-data-quality',
+          subItems: [
+            { title: 'Work Orders On Hold', href: '/dashboards/asset-data-quality/work-orders-on-hold' },
+            { title: 'GIS to SAP Discrepancy', href: '/dashboards/asset-data-quality/gis-sap-discrepancy' }
+          ]
+        }
+      ]
     },
     {
       title: 'Asset Inventory',
@@ -175,16 +200,57 @@ export function Sidebar({ isCollapsed, onToggle, className }: SidebarProps) {
                 
                 {hasSubItems && isExpanded && !isCollapsed && (
                   <div className="ml-8 mt-1 space-y-1">
-                    {item.subItems.map((subItem, subIndex) => (
-                      <Link
-                        key={subIndex}
-                        to={subItem.href}
-                        className="flex items-center gap-2 rounded-md px-3 py-1.5 text-sm transition-colors hover:bg-sidebar-accent/50 hover:text-sidebar-accent-foreground text-sidebar-foreground/80"
-                      >
-                        <div className="h-1.5 w-1.5 rounded-full bg-sidebar-foreground/40" />
-                        {subItem.title}
-                      </Link>
-                    ))}
+                    {item.subItems.map((subItem, subIndex) => {
+                      const hasSubSubItems = subItem.subItems && subItem.subItems.length > 0;
+                      const isSubExpanded = expandedItems.includes(`${item.title}-${subItem.title}`);
+                      
+                      return (
+                        <div key={subIndex}>
+                          <div
+                            className="flex items-center gap-2 rounded-md px-3 py-1.5 text-sm transition-colors hover:bg-sidebar-accent/50 hover:text-sidebar-accent-foreground text-sidebar-foreground/80 cursor-pointer"
+                            onClick={() => {
+                              if (hasSubSubItems) {
+                                setExpandedItems(prev =>
+                                  prev.includes(`${item.title}-${subItem.title}`)
+                                    ? prev.filter(t => t !== `${item.title}-${subItem.title}`)
+                                    : [...prev, `${item.title}-${subItem.title}`]
+                                );
+                              }
+                            }}
+                          >
+                            <Link
+                              to={subItem.href}
+                              className="flex items-center gap-2 flex-1"
+                              onClick={(e) => hasSubSubItems && e.preventDefault()}
+                            >
+                              <div className="h-1.5 w-1.5 rounded-full bg-sidebar-foreground/40" />
+                              {subItem.title}
+                            </Link>
+                            {hasSubSubItems && (
+                              <ChevronDown className={cn(
+                                "h-3 w-3 transition-transform duration-200",
+                                isSubExpanded && "rotate-180"
+                              )} />
+                            )}
+                          </div>
+                          
+                          {hasSubSubItems && isSubExpanded && (
+                            <div className="ml-6 mt-1 space-y-1">
+                              {subItem.subItems.map((subSubItem, subSubIndex) => (
+                                <Link
+                                  key={subSubIndex}
+                                  to={subSubItem.href}
+                                  className="flex items-center gap-2 rounded-md px-3 py-1.5 text-xs transition-colors hover:bg-sidebar-accent/50 hover:text-sidebar-accent-foreground text-sidebar-foreground/70"
+                                >
+                                  <div className="h-1 w-1 rounded-full bg-sidebar-foreground/30" />
+                                  {subSubItem.title}
+                                </Link>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      );
+                    })}
                   </div>
                 )}
               </div>
