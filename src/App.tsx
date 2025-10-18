@@ -18,6 +18,7 @@ import Assets from "./pages/Assets";
 import Documentation from "./pages/Documentation";
 import GovernanceStandards from "./pages/GovernanceStandards";
 import CustomerTransformerDetection from "./pages/CustomerTransformerDetection";
+import Reports from "./pages/Reports";
 
 const queryClient = new QueryClient();
 
@@ -39,6 +40,7 @@ const App = () => (
             <Route path="/performance" element={<Performance />} />
             <Route path="/analysis" element={<Analysis />} />
             <Route path="/settings" element={<Settings />} />
+            <Route path="/reports" element={<Reports />} />
             <Route path="/documentation" element={<Documentation />} />
             <Route path="/documentation/governance" element={<GovernanceStandards />} />
             <Route path="/projects/customer-transformer-detection" element={<CustomerTransformerDetection />} />
