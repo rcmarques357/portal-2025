@@ -68,6 +68,14 @@ export function Sidebar({ isCollapsed, onToggle, className }: SidebarProps) {
       href: '/reports',
     },
     {
+      title: 'Projects',
+      icon: FileText,
+      href: '/projects',
+      subItems: [
+        { title: 'Customer Transformer Detection', href: '/projects/customer-transformer-detection' }
+      ]
+    },
+    {
       title: 'Documentation',
       icon: FileText,
       href: '/documentation',

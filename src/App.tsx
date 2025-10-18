@@ -17,6 +17,7 @@ import Settings from "./pages/Settings";
 import Assets from "./pages/Assets";
 import Documentation from "./pages/Documentation";
 import GovernanceStandards from "./pages/GovernanceStandards";
+import CustomerTransformerDetection from "./pages/CustomerTransformerDetection";
 
 const queryClient = new QueryClient();
 
@@ -40,6 +41,7 @@ const App = () => (
             <Route path="/settings" element={<Settings />} />
             <Route path="/documentation" element={<Documentation />} />
             <Route path="/documentation/governance" element={<GovernanceStandards />} />
+            <Route path="/projects/customer-transformer-detection" element={<CustomerTransformerDetection />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
