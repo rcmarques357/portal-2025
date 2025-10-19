@@ -13,6 +13,7 @@ import Global from "./pages/Global";
 import Portfolio from "./pages/Portfolio";
 import Performance from "./pages/Performance";
 import Analysis from "./pages/Analysis";
+import Analytics from "./pages/Analytics";
 import Settings from "./pages/Settings";
 import Assets from "./pages/Assets";
 import Documentation from "./pages/Documentation";
@@ -41,6 +42,7 @@ const App = () => (
             <Route path="/portfolio" element={<Portfolio />} />
             <Route path="/performance" element={<Performance />} />
             <Route path="/analysis" element={<Analysis />} />
+            <Route path="/analytics" element={<Analytics />} />
             <Route path="/settings" element={<Settings />} />
             <Route path="/reports" element={<Reports />} />
             <Route path="/workorders" element={<WorkOrders />} />
