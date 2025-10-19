@@ -20,6 +20,7 @@ import GovernanceStandards from "./pages/GovernanceStandards";
 import CustomerTransformerDetection from "./pages/CustomerTransformerDetection";
 import Reports from "./pages/Reports";
 import WorkOrders from "./pages/WorkOrders";
+import WorkOrdersOnHold from "./pages/WorkOrdersOnHold";
 
 const queryClient = new QueryClient();
 
@@ -43,6 +44,7 @@ const App = () => (
             <Route path="/settings" element={<Settings />} />
             <Route path="/reports" element={<Reports />} />
             <Route path="/workorders" element={<WorkOrders />} />
+            <Route path="/workorders-on-hold" element={<WorkOrdersOnHold />} />
             <Route path="/documentation" element={<Documentation />} />
             <Route path="/documentation/governance" element={<GovernanceStandards />} />
             <Route path="/projects/customer-transformer-detection" element={<CustomerTransformerDetection />} />

@@ -51,7 +51,7 @@ export function Sidebar({ isCollapsed, onToggle, className }: SidebarProps) {
           title: 'Asset Data Quality', 
           href: '/dashboards/asset-data-quality',
           subItems: [
-            { title: 'Work Orders On Hold', href: '/dashboards/asset-data-quality/work-orders-on-hold' },
+            { title: 'Work Orders On Hold', href: '/workorders-on-hold' },
             { title: 'GIS to SAP Discrepancy', href: '/dashboards/asset-data-quality/gis-sap-discrepancy' }
           ]
         }
