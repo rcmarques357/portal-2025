@@ -107,7 +107,7 @@ export function Sidebar({ isCollapsed, onToggle, className }: SidebarProps) {
       subItems: [
         { title: 'Business Process Manuals', href: '/documentation#bpm' },
         { title: 'Governance & Standards', href: '/documentation/governance' },
-        { title: 'Processes & Procedures', href: '/documentation#procedures' }
+        { title: 'Processes & Procedures', href: '/documentation/processes-procedures' }
       ]
     },
     {
