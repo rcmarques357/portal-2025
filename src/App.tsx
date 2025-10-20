@@ -25,6 +25,7 @@ import WorkOrdersOnHold from "./pages/WorkOrdersOnHold";
 import GISDiscrepancy from "./pages/GISDiscrepancy";
 import GISIntegration from "./pages/GISIntegration";
 import SAPIntegration from "./pages/SAPIntegration";
+import AssetDataProcess from "./pages/AssetDataProcess";
 
 const queryClient = new QueryClient();
 
@@ -37,6 +38,7 @@ const App = () => (
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/dashboards/asset-data-process" element={<AssetDataProcess />} />
             <Route path="/assets" element={<Assets />} />
             <Route path="/gis" element={<GISIntegration />} />
             <Route path="/sap" element={<SAPIntegration />} />
