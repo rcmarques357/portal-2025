@@ -24,6 +24,7 @@ import WorkOrders from "./pages/WorkOrders";
 import WorkOrdersOnHold from "./pages/WorkOrdersOnHold";
 import GISDiscrepancy from "./pages/GISDiscrepancy";
 import GISIntegration from "./pages/GISIntegration";
+import SAPIntegration from "./pages/SAPIntegration";
 
 const queryClient = new QueryClient();
 
@@ -38,6 +39,7 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/assets" element={<Assets />} />
             <Route path="/gis" element={<GISIntegration />} />
+            <Route path="/sap" element={<SAPIntegration />} />
             <Route path="/stocks" element={<Stocks />} />
             <Route path="/markets" element={<Markets />} />
             <Route path="/currencies" element={<Currencies />} />
