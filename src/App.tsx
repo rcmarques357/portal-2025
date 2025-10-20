@@ -22,6 +22,7 @@ import CustomerTransformerDetection from "./pages/CustomerTransformerDetection";
 import Reports from "./pages/Reports";
 import WorkOrders from "./pages/WorkOrders";
 import WorkOrdersOnHold from "./pages/WorkOrdersOnHold";
+import GISDiscrepancy from "./pages/GISDiscrepancy";
 
 const queryClient = new QueryClient();
 
@@ -50,6 +51,7 @@ const App = () => (
             <Route path="/documentation" element={<Documentation />} />
             <Route path="/documentation/governance" element={<GovernanceStandards />} />
             <Route path="/projects/customer-transformer-detection" element={<CustomerTransformerDetection />} />
+            <Route path="/dashboards/asset-data-quality/gis-sap-discrepancy" element={<GISDiscrepancy />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
