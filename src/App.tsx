@@ -27,6 +27,7 @@ import GISIntegration from "./pages/GISIntegration";
 import SAPIntegration from "./pages/SAPIntegration";
 import AssetDataProcess from "./pages/AssetDataProcess";
 import ProcessesProcedures from "./pages/ProcessesProcedures";
+import Maintenance from "./pages/Maintenance";
 
 const queryClient = new QueryClient();
 
@@ -43,6 +44,7 @@ const App = () => (
             <Route path="/assets" element={<Assets />} />
             <Route path="/gis" element={<GISIntegration />} />
             <Route path="/sap" element={<SAPIntegration />} />
+            <Route path="/maintenance" element={<Maintenance />} />
             <Route path="/stocks" element={<Stocks />} />
             <Route path="/markets" element={<Markets />} />
             <Route path="/currencies" element={<Currencies />} />
