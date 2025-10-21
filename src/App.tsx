@@ -28,6 +28,7 @@ import SAPIntegration from "./pages/SAPIntegration";
 import AssetDataProcess from "./pages/AssetDataProcess";
 import ProcessesProcedures from "./pages/ProcessesProcedures";
 import Maintenance from "./pages/Maintenance";
+import TrainingTutorials from "./pages/TrainingTutorials";
 
 const queryClient = new QueryClient();
 
@@ -60,6 +61,7 @@ const App = () => (
             <Route path="/documentation" element={<Documentation />} />
             <Route path="/documentation/governance" element={<GovernanceStandards />} />
             <Route path="/documentation/processes-procedures" element={<ProcessesProcedures />} />
+            <Route path="/documentation/training-tutorials" element={<TrainingTutorials />} />
             <Route path="/projects/customer-transformer-detection" element={<CustomerTransformerDetection />} />
             <Route path="/dashboards/asset-data-quality/gis-sap-discrepancy" element={<GISDiscrepancy />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
