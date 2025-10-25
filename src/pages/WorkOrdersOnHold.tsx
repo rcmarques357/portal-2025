@@ -7,7 +7,6 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
-import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
 import { Home, TrendingUp, Target } from 'lucide-react';
 
 export default function WorkOrdersOnHold() {
@@ -383,46 +382,43 @@ export default function WorkOrdersOnHold() {
               <CardHeader>
                 <CardTitle className="text-base">Open Tasks Details</CardTitle>
               </CardHeader>
-              <CardContent>
-                <ScrollArea className="w-full">
-                  <div className="rounded-md border">
-                    <Table>
-                      <TableHeader>
-                        <TableRow>
-                          <TableHead className="whitespace-nowrap">Company Code</TableHead>
-                          <TableHead className="whitespace-nowrap">Main Work Order</TableHead>
-                          <TableHead className="whitespace-nowrap">Div</TableHead>
-                          <TableHead className="whitespace-nowrap">Functional Loc#</TableHead>
-                          <TableHead className="whitespace-nowrap">FLOC Description</TableHead>
-                          <TableHead className="whitespace-nowrap">Street</TableHead>
-                          <TableHead className="whitespace-nowrap">City</TableHead>
-                          <TableHead className="whitespace-nowrap">Notification</TableHead>
-                          <TableHead className="whitespace-nowrap">Order</TableHead>
-                          <TableHead className="whitespace-nowrap">WBS</TableHead>
-                          <TableHead className="whitespace-nowrap">Task</TableHead>
+              <CardContent className="p-0">
+                <div className="overflow-x-auto">
+                  <Table className="min-w-max">
+                    <TableHeader>
+                      <TableRow>
+                        <TableHead className="whitespace-nowrap min-w-[120px]">Company Code</TableHead>
+                        <TableHead className="whitespace-nowrap min-w-[140px]">Main Work Order</TableHead>
+                        <TableHead className="whitespace-nowrap min-w-[60px]">Div</TableHead>
+                        <TableHead className="whitespace-nowrap min-w-[250px]">Functional Loc#</TableHead>
+                        <TableHead className="whitespace-nowrap min-w-[180px]">FLOC Description</TableHead>
+                        <TableHead className="whitespace-nowrap min-w-[150px]">Street</TableHead>
+                        <TableHead className="whitespace-nowrap min-w-[120px]">City</TableHead>
+                        <TableHead className="whitespace-nowrap min-w-[120px]">Notification</TableHead>
+                        <TableHead className="whitespace-nowrap min-w-[120px]">Order</TableHead>
+                        <TableHead className="whitespace-nowrap min-w-[100px]">WBS</TableHead>
+                        <TableHead className="whitespace-nowrap min-w-[80px]">Task</TableHead>
+                      </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                      {openTasks.map((task, index) => (
+                        <TableRow key={index}>
+                          <TableCell className="whitespace-nowrap">{task.companyCode}</TableCell>
+                          <TableCell className="whitespace-nowrap">{task.mainWorkOrder}</TableCell>
+                          <TableCell className="whitespace-nowrap">{task.div}</TableCell>
+                          <TableCell className="font-mono text-xs whitespace-nowrap">{task.functionalLoc}</TableCell>
+                          <TableCell className="whitespace-nowrap">{task.flocDesc}</TableCell>
+                          <TableCell className="whitespace-nowrap">{task.street}</TableCell>
+                          <TableCell className="whitespace-nowrap">{task.city}</TableCell>
+                          <TableCell className="whitespace-nowrap">{task.notification}</TableCell>
+                          <TableCell className="whitespace-nowrap">{task.order}</TableCell>
+                          <TableCell className="whitespace-nowrap">{task.wbs}</TableCell>
+                          <TableCell className="whitespace-nowrap">{task.task}</TableCell>
                         </TableRow>
-                      </TableHeader>
-                      <TableBody>
-                        {openTasks.map((task, index) => (
-                          <TableRow key={index}>
-                            <TableCell className="whitespace-nowrap">{task.companyCode}</TableCell>
-                            <TableCell className="whitespace-nowrap">{task.mainWorkOrder}</TableCell>
-                            <TableCell className="whitespace-nowrap">{task.div}</TableCell>
-                            <TableCell className="font-mono text-xs whitespace-nowrap">{task.functionalLoc}</TableCell>
-                            <TableCell className="whitespace-nowrap">{task.flocDesc}</TableCell>
-                            <TableCell className="whitespace-nowrap">{task.street}</TableCell>
-                            <TableCell className="whitespace-nowrap">{task.city}</TableCell>
-                            <TableCell className="whitespace-nowrap">{task.notification}</TableCell>
-                            <TableCell className="whitespace-nowrap">{task.order}</TableCell>
-                            <TableCell className="whitespace-nowrap">{task.wbs}</TableCell>
-                            <TableCell className="whitespace-nowrap">{task.task}</TableCell>
-                          </TableRow>
-                        ))}
-                      </TableBody>
-                    </Table>
-                  </div>
-                  <ScrollBar orientation="horizontal" />
-                </ScrollArea>
+                      ))}
+                    </TableBody>
+                  </Table>
+                </div>
               </CardContent>
             </Card>
           </div>
