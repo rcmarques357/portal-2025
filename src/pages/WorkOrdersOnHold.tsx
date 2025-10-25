@@ -7,6 +7,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
+import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
 import { Home, TrendingUp, Target } from 'lucide-react';
 
 export default function WorkOrdersOnHold() {
@@ -383,42 +384,45 @@ export default function WorkOrdersOnHold() {
                 <CardTitle className="text-base">Open Tasks Details</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="rounded-md border">
-                  <Table>
-                    <TableHeader>
-                      <TableRow>
-                        <TableHead>Company Code</TableHead>
-                        <TableHead>Main Work Order</TableHead>
-                        <TableHead>Div</TableHead>
-                        <TableHead>Functional Loc#</TableHead>
-                        <TableHead>FLOC Description</TableHead>
-                        <TableHead>Street</TableHead>
-                        <TableHead>City</TableHead>
-                        <TableHead>Notification</TableHead>
-                        <TableHead>Order</TableHead>
-                        <TableHead>WBS</TableHead>
-                        <TableHead>Task</TableHead>
-                      </TableRow>
-                    </TableHeader>
-                    <TableBody>
-                      {openTasks.map((task, index) => (
-                        <TableRow key={index}>
-                          <TableCell>{task.companyCode}</TableCell>
-                          <TableCell>{task.mainWorkOrder}</TableCell>
-                          <TableCell>{task.div}</TableCell>
-                          <TableCell className="font-mono text-xs">{task.functionalLoc}</TableCell>
-                          <TableCell>{task.flocDesc}</TableCell>
-                          <TableCell>{task.street}</TableCell>
-                          <TableCell>{task.city}</TableCell>
-                          <TableCell>{task.notification}</TableCell>
-                          <TableCell>{task.order}</TableCell>
-                          <TableCell>{task.wbs}</TableCell>
-                          <TableCell>{task.task}</TableCell>
+                <ScrollArea className="w-full">
+                  <div className="rounded-md border">
+                    <Table>
+                      <TableHeader>
+                        <TableRow>
+                          <TableHead className="whitespace-nowrap">Company Code</TableHead>
+                          <TableHead className="whitespace-nowrap">Main Work Order</TableHead>
+                          <TableHead className="whitespace-nowrap">Div</TableHead>
+                          <TableHead className="whitespace-nowrap">Functional Loc#</TableHead>
+                          <TableHead className="whitespace-nowrap">FLOC Description</TableHead>
+                          <TableHead className="whitespace-nowrap">Street</TableHead>
+                          <TableHead className="whitespace-nowrap">City</TableHead>
+                          <TableHead className="whitespace-nowrap">Notification</TableHead>
+                          <TableHead className="whitespace-nowrap">Order</TableHead>
+                          <TableHead className="whitespace-nowrap">WBS</TableHead>
+                          <TableHead className="whitespace-nowrap">Task</TableHead>
                         </TableRow>
-                      ))}
-                    </TableBody>
-                  </Table>
-                </div>
+                      </TableHeader>
+                      <TableBody>
+                        {openTasks.map((task, index) => (
+                          <TableRow key={index}>
+                            <TableCell className="whitespace-nowrap">{task.companyCode}</TableCell>
+                            <TableCell className="whitespace-nowrap">{task.mainWorkOrder}</TableCell>
+                            <TableCell className="whitespace-nowrap">{task.div}</TableCell>
+                            <TableCell className="font-mono text-xs whitespace-nowrap">{task.functionalLoc}</TableCell>
+                            <TableCell className="whitespace-nowrap">{task.flocDesc}</TableCell>
+                            <TableCell className="whitespace-nowrap">{task.street}</TableCell>
+                            <TableCell className="whitespace-nowrap">{task.city}</TableCell>
+                            <TableCell className="whitespace-nowrap">{task.notification}</TableCell>
+                            <TableCell className="whitespace-nowrap">{task.order}</TableCell>
+                            <TableCell className="whitespace-nowrap">{task.wbs}</TableCell>
+                            <TableCell className="whitespace-nowrap">{task.task}</TableCell>
+                          </TableRow>
+                        ))}
+                      </TableBody>
+                    </Table>
+                  </div>
+                  <ScrollBar orientation="horizontal" />
+                </ScrollArea>
               </CardContent>
             </Card>
           </div>
