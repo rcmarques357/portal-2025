@@ -39,8 +39,13 @@ export function Sidebar({ isCollapsed, onToggle, className }: SidebarProps) {
   
   const navItems = [
     {
-      title: 'Dashboards',
+      title: 'Home',
       icon: Home,
+      href: '/',
+    },
+    {
+      title: 'Dashboards',
+      icon: BarChart,
       href: '/dashboards',
       subItems: [
         { 
