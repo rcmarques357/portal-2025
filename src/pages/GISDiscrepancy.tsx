@@ -512,7 +512,7 @@ export default function GISDiscrepancy() {
                       </div>
                     </div>
                   </div>
-                  <div className="grid grid-cols-2 gap-4 w-full text-center">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full text-center">
                     <div>
                       <div className="text-xs text-muted-foreground">Total Discrepancies</div>
                       <div className="text-xl font-bold">16,628</div>

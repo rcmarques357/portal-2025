@@ -33,7 +33,7 @@ export function StockCard({ stock, priceHistory, className, onClick }: StockCard
         <BarChart3Icon className="h-4 w-4 text-muted-foreground" />
       </CardHeader>
       <CardContent>
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="space-y-2">
             <div className="text-2xl font-bold">{formatCurrency(stock.price)}</div>
             <div className="flex items-center text-xs">
@@ -48,7 +48,7 @@ export function StockCard({ stock, priceHistory, className, onClick }: StockCard
                 {formatCurrency(Math.abs(stock.change))} ({formatPercentage(stock.changePercent)})
               </span>
             </div>
-            <div className="grid grid-cols-2 gap-1 text-xs">
+            <div className="grid grid-cols-[auto_1fr] gap-x-2 gap-y-1 text-xs">
               <div className="text-muted-foreground">Volume:</div>
               <div className="text-right">{formatNumber(stock.volume)}</div>
               <div className="text-muted-foreground">Mkt Cap:</div>

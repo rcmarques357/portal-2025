@@ -151,7 +151,7 @@ export default function CustomerTransformerDetection() {
                     <div className="col-span-1 font-semibold">{customer.confidence}</div>
                     
                     {/* Charts */}
-                    <div className="col-span-5 grid grid-cols-2 gap-4">
+                    <div className="col-span-5 grid grid-cols-1 md:grid-cols-2 gap-4">
                       {/* Recorded Chart */}
                       <div className="space-y-2">
                         <div className="text-xs text-muted-foreground text-center">

@@ -149,7 +149,7 @@ const Performance = () => {
         <div className="lg:col-span-1">
           <div className="bg-card rounded-lg p-6 shadow">
             <h2 className="text-xl font-semibold mb-4">Monthly Returns (%)</h2>
-            <div className="grid grid-cols-3 gap-2">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
               {['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'].map((month) => {
                 const returnValue = (Math.random() * 6) - 2;
                 return (

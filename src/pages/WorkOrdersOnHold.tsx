@@ -236,7 +236,7 @@ export default function WorkOrdersOnHold() {
           {/* Main Content */}
           <div className="flex-1 space-y-6">
             {/* Summary Cards */}
-            <div className="grid grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               <Card>
                 <CardHeader className="pb-3">
                   <CardTitle className="text-sm font-medium text-muted-foreground">
@@ -287,7 +287,7 @@ export default function WorkOrdersOnHold() {
             </div>
 
             {/* Charts Section */}
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               {/* Reason for Open Task */}
               <Card>
                 <CardHeader>
