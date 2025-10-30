@@ -98,6 +98,11 @@ export function Sidebar({ isCollapsed, onToggle, className }: SidebarProps) {
       href: '/reports',
     },
     {
+      title: 'Process Improvement',
+      icon: LineChart,
+      href: '/process-improvement',
+    },
+    {
       title: 'Projects',
       icon: FileText,
       href: '/projects',
