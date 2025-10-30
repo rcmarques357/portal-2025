@@ -3,9 +3,11 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
-import { ArrowLeft, Edit, Trash2, Plus, Calendar, TrendingUp } from 'lucide-react';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { ArrowLeft, Edit, Trash2, Plus, Calendar, TrendingUp, List, GanttChart } from 'lucide-react';
 import { Initiative, Task } from './types';
 import { TaskList } from './TaskList';
+import { TaskGanttChart } from './TaskGanttChart';
 import { TaskForm } from './TaskForm';
 import { format } from 'date-fns';
 
@@ -180,15 +182,37 @@ export function InitiativeDetail({
           </div>
         </CardHeader>
         <CardContent>
-          <TaskList
-            tasks={initiative.tasks}
-            onEdit={handleEditTask}
-            onDelete={handleDeleteTask}
-            onUpdateStatus={(taskId, status) => handleQuickTaskUpdate(taskId, { status })}
-            onUpdateProgress={(taskId, percentCompleted) =>
-              handleQuickTaskUpdate(taskId, { percentCompleted })
-            }
-          />
+          <Tabs defaultValue="list" className="w-full">
+            <TabsList className="grid w-full max-w-md grid-cols-2 mb-4">
+              <TabsTrigger value="list" className="flex items-center gap-2">
+                <List className="h-4 w-4" />
+                List View
+              </TabsTrigger>
+              <TabsTrigger value="gantt" className="flex items-center gap-2">
+                <GanttChart className="h-4 w-4" />
+                Gantt Chart
+              </TabsTrigger>
+            </TabsList>
+            
+            <TabsContent value="list" className="mt-0">
+              <TaskList
+                tasks={initiative.tasks}
+                onEdit={handleEditTask}
+                onDelete={handleDeleteTask}
+                onUpdateStatus={(taskId, status) => handleQuickTaskUpdate(taskId, { status })}
+                onUpdateProgress={(taskId, percentCompleted) =>
+                  handleQuickTaskUpdate(taskId, { percentCompleted })
+                }
+              />
+            </TabsContent>
+            
+            <TabsContent value="gantt" className="mt-0">
+              <TaskGanttChart
+                tasks={initiative.tasks}
+                initiativeStartDate={initiative.startDate}
+              />
+            </TabsContent>
+          </Tabs>
         </CardContent>
       </Card>
 
