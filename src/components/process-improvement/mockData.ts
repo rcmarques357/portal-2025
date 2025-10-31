@@ -19,6 +19,10 @@ export const mockInitiatives: Initiative[] = [
         deadline: '2024-02-15',
         weight: 20,
         percentCompleted: 100,
+        files: [
+          { id: 'f1', name: 'data_collection_plan.pdf', size: 245000, uploadDate: '2024-01-10', type: 'application/pdf' },
+          { id: 'f2', name: 'legacy_system_export.xlsx', size: 1024000, uploadDate: '2024-01-15', type: 'application/vnd.ms-excel' },
+        ],
       },
       {
         id: 't2',
@@ -28,6 +32,9 @@ export const mockInitiatives: Initiative[] = [
         deadline: '2024-04-30',
         weight: 40,
         percentCompleted: 60,
+        files: [
+          { id: 'f3', name: 'integration_specs.docx', size: 156000, uploadDate: '2024-02-01', type: 'application/msword' },
+        ],
       },
       {
         id: 't3',
@@ -37,6 +44,7 @@ export const mockInitiatives: Initiative[] = [
         deadline: '2024-06-15',
         weight: 40,
         percentCompleted: 0,
+        files: [],
       },
     ],
   },
@@ -58,6 +66,7 @@ export const mockInitiatives: Initiative[] = [
         deadline: '2024-03-01',
         weight: 25,
         percentCompleted: 100,
+        files: [],
       },
       {
         id: 't5',
@@ -67,6 +76,7 @@ export const mockInitiatives: Initiative[] = [
         deadline: '2024-05-15',
         weight: 35,
         percentCompleted: 50,
+        files: [],
       },
       {
         id: 't6',
@@ -76,6 +86,7 @@ export const mockInitiatives: Initiative[] = [
         deadline: '2024-07-31',
         weight: 40,
         percentCompleted: 0,
+        files: [],
       },
     ],
   },
@@ -97,6 +108,7 @@ export const mockInitiatives: Initiative[] = [
         deadline: '2024-04-01',
         weight: 30,
         percentCompleted: 50,
+        files: [],
       },
       {
         id: 't8',
@@ -106,6 +118,7 @@ export const mockInitiatives: Initiative[] = [
         deadline: '2024-07-31',
         weight: 50,
         percentCompleted: 0,
+        files: [],
       },
       {
         id: 't9',
@@ -115,6 +128,7 @@ export const mockInitiatives: Initiative[] = [
         deadline: '2024-09-15',
         weight: 20,
         percentCompleted: 0,
+        files: [],
       },
     ],
   },
@@ -136,6 +150,7 @@ export const mockInitiatives: Initiative[] = [
         deadline: '2024-02-28',
         weight: 30,
         percentCompleted: 100,
+        files: [],
       },
       {
         id: 't11',
@@ -145,6 +160,7 @@ export const mockInitiatives: Initiative[] = [
         deadline: '2024-04-15',
         weight: 40,
         percentCompleted: 100,
+        files: [],
       },
       {
         id: 't12',
@@ -154,6 +170,7 @@ export const mockInitiatives: Initiative[] = [
         deadline: '2024-05-30',
         weight: 30,
         percentCompleted: 40,
+        files: [],
       },
     ],
   },
@@ -175,6 +192,7 @@ export const mockInitiatives: Initiative[] = [
         deadline: '2024-03-31',
         weight: 25,
         percentCompleted: 100,
+        files: [],
       },
       {
         id: 't14',
@@ -184,6 +202,7 @@ export const mockInitiatives: Initiative[] = [
         deadline: '2024-06-30',
         weight: 35,
         percentCompleted: 20,
+        files: [],
       },
       {
         id: 't15',
@@ -193,6 +212,7 @@ export const mockInitiatives: Initiative[] = [
         deadline: '2024-10-15',
         weight: 40,
         percentCompleted: 0,
+        files: [],
       },
     ],
   },
@@ -214,6 +234,7 @@ export const mockInitiatives: Initiative[] = [
         deadline: '2024-03-15',
         weight: 30,
         percentCompleted: 100,
+        files: [],
       },
       {
         id: 't17',
@@ -223,6 +244,7 @@ export const mockInitiatives: Initiative[] = [
         deadline: '2024-05-31',
         weight: 40,
         percentCompleted: 65,
+        files: [],
       },
       {
         id: 't18',
@@ -232,6 +254,7 @@ export const mockInitiatives: Initiative[] = [
         deadline: '2024-07-30',
         weight: 30,
         percentCompleted: 0,
+        files: [],
       },
     ],
   },
@@ -253,6 +276,7 @@ export const mockInitiatives: Initiative[] = [
         deadline: '2023-10-15',
         weight: 20,
         percentCompleted: 100,
+        files: [],
       },
       {
         id: 't20',
@@ -262,6 +286,7 @@ export const mockInitiatives: Initiative[] = [
         deadline: '2023-12-31',
         weight: 40,
         percentCompleted: 100,
+        files: [],
       },
       {
         id: 't21',
@@ -271,6 +296,7 @@ export const mockInitiatives: Initiative[] = [
         deadline: '2024-02-28',
         weight: 40,
         percentCompleted: 100,
+        files: [],
       },
     ],
   },
@@ -292,6 +318,7 @@ export const mockInitiatives: Initiative[] = [
         deadline: '2024-03-15',
         weight: 25,
         percentCompleted: 100,
+        files: [],
       },
       {
         id: 't23',
@@ -301,6 +328,7 @@ export const mockInitiatives: Initiative[] = [
         deadline: '2024-05-31',
         weight: 35,
         percentCompleted: 50,
+        files: [],
       },
       {
         id: 't24',
@@ -310,6 +338,7 @@ export const mockInitiatives: Initiative[] = [
         deadline: '2024-08-30',
         weight: 40,
         percentCompleted: 0,
+        files: [],
       },
     ],
   },
@@ -331,6 +360,7 @@ export const mockInitiatives: Initiative[] = [
         deadline: '2024-04-30',
         weight: 30,
         percentCompleted: 65,
+        files: [],
       },
       {
         id: 't26',
@@ -340,6 +370,7 @@ export const mockInitiatives: Initiative[] = [
         deadline: '2024-08-31',
         weight: 50,
         percentCompleted: 0,
+        files: [],
       },
       {
         id: 't27',
@@ -349,6 +380,7 @@ export const mockInitiatives: Initiative[] = [
         deadline: '2024-10-15',
         weight: 20,
         percentCompleted: 0,
+        files: [],
       },
     ],
   },
@@ -370,6 +402,7 @@ export const mockInitiatives: Initiative[] = [
         deadline: '2024-03-01',
         weight: 25,
         percentCompleted: 100,
+        files: [],
       },
       {
         id: 't29',
@@ -379,6 +412,7 @@ export const mockInitiatives: Initiative[] = [
         deadline: '2024-06-30',
         weight: 35,
         percentCompleted: 70,
+        files: [],
       },
       {
         id: 't30',
@@ -388,6 +422,7 @@ export const mockInitiatives: Initiative[] = [
         deadline: '2024-12-15',
         weight: 40,
         percentCompleted: 35,
+        files: [],
       },
     ],
   },
@@ -409,6 +444,7 @@ export const mockInitiatives: Initiative[] = [
         deadline: '2024-02-28',
         weight: 20,
         percentCompleted: 100,
+        files: [],
       },
       {
         id: 't32',
@@ -418,6 +454,7 @@ export const mockInitiatives: Initiative[] = [
         deadline: '2024-09-30',
         weight: 60,
         percentCompleted: 45,
+        files: [],
       },
       {
         id: 't33',
@@ -427,6 +464,7 @@ export const mockInitiatives: Initiative[] = [
         deadline: '2024-11-30',
         weight: 20,
         percentCompleted: 0,
+        files: [],
       },
     ],
   },
@@ -448,6 +486,7 @@ export const mockInitiatives: Initiative[] = [
         deadline: '2024-05-31',
         weight: 35,
         percentCompleted: 30,
+        files: [],
       },
       {
         id: 't35',
@@ -457,6 +496,7 @@ export const mockInitiatives: Initiative[] = [
         deadline: '2024-09-30',
         weight: 40,
         percentCompleted: 0,
+        files: [],
       },
       {
         id: 't36',
@@ -466,6 +506,7 @@ export const mockInitiatives: Initiative[] = [
         deadline: '2024-12-15',
         weight: 25,
         percentCompleted: 0,
+        files: [],
       },
     ],
   },
@@ -487,6 +528,7 @@ export const mockInitiatives: Initiative[] = [
         deadline: '2024-01-15',
         weight: 25,
         percentCompleted: 100,
+        files: [],
       },
       {
         id: 't38',
@@ -496,162 +538,102 @@ export const mockInitiatives: Initiative[] = [
         deadline: '2024-03-01',
         weight: 40,
         percentCompleted: 100,
+        files: [],
       },
       {
         id: 't39',
-        name: 'Training & Drills',
-        description: 'Conduct staff training',
+        name: 'Training Program',
+        description: 'Train response teams',
         status: 'in progress',
         deadline: '2024-04-30',
         weight: 35,
         percentCompleted: 50,
+        files: [],
       },
     ],
   },
   {
     id: '14',
     processNumber: 'PI-014',
-    name: 'Smart Grid Integration',
-    description: 'Integrate smart grid technologies',
+    name: 'Network Redundancy Analysis',
+    description: 'Analyze and improve network redundancy',
     status: 'planned',
-    completenessRate: 8,
-    startDate: '2024-05-01',
-    completionDate: '2025-05-31',
+    completenessRate: 5,
+    startDate: '2024-04-15',
+    completionDate: '2024-12-31',
     tasks: [
       {
         id: 't40',
-        name: 'Technology Assessment',
-        description: 'Evaluate smart grid technologies',
+        name: 'Current State Assessment',
+        description: 'Assess existing redundancy measures',
         status: 'in progress',
-        deadline: '2024-07-31',
-        weight: 30,
-        percentCompleted: 25,
+        deadline: '2024-06-30',
+        weight: 40,
+        percentCompleted: 15,
+        files: [],
       },
       {
         id: 't41',
-        name: 'Pilot Program',
-        description: 'Deploy pilot smart grid system',
+        name: 'Gap Analysis',
+        description: 'Identify redundancy gaps',
         status: 'not started',
-        deadline: '2024-12-31',
-        weight: 40,
+        deadline: '2024-09-30',
+        weight: 30,
         percentCompleted: 0,
+        files: [],
       },
       {
         id: 't42',
-        name: 'Full Deployment',
-        description: 'Roll out smart grid network-wide',
+        name: 'Implementation Plan',
+        description: 'Develop improvement plan',
         status: 'not started',
-        deadline: '2025-05-31',
+        deadline: '2024-12-15',
         weight: 30,
         percentCompleted: 0,
+        files: [],
       },
     ],
   },
   {
     id: '15',
     processNumber: 'PI-015',
-    name: 'Workforce Scheduling Optimization',
-    description: 'Optimize crew scheduling and dispatching',
+    name: 'Substation Automation',
+    description: 'Automate substation operations and monitoring',
     status: 'in progress',
     completenessRate: 62,
-    startDate: '2024-01-10',
+    startDate: '2023-10-01',
     completionDate: '2024-06-30',
     tasks: [
       {
         id: 't43',
-        name: 'Current State Analysis',
-        description: 'Analyze current scheduling process',
+        name: 'Equipment Selection',
+        description: 'Select automation equipment',
         status: 'completed',
-        deadline: '2024-02-15',
-        weight: 25,
+        deadline: '2024-01-31',
+        weight: 30,
         percentCompleted: 100,
+        files: [],
       },
       {
         id: 't44',
-        name: 'Software Selection',
-        description: 'Select scheduling software',
-        status: 'completed',
-        deadline: '2024-04-01',
-        weight: 30,
-        percentCompleted: 100,
+        name: 'Installation',
+        description: 'Install automation systems',
+        status: 'in progress',
+        deadline: '2024-05-31',
+        weight: 50,
+        percentCompleted: 60,
+        files: [],
       },
       {
         id: 't45',
-        name: 'Implementation',
-        description: 'Implement new scheduling system',
-        status: 'in progress',
+        name: 'Testing & Commissioning',
+        description: 'Test and commission systems',
+        status: 'not started',
         deadline: '2024-06-30',
-        weight: 45,
-        percentCompleted: 40,
+        weight: 20,
+        percentCompleted: 0,
+        files: [],
       },
     ],
   },
 ];
-
-/* Django API Integration Example:
- 
- * Django Models:
- * 
- * class Initiative(models.Model):
- *     STATUS_CHOICES = [
- *         ('planned', 'Planned'),
- *         ('in progress', 'In Progress'),
- *         ('completed', 'Completed'),
- *         ('on hold', 'On Hold'),
- *     ]
- *     
- *     process_number = models.CharField(max_length=20, unique=True)
- *     name = models.CharField(max_length=200)
- *     description = models.TextField()
- *     status = models.CharField(max_length=20, choices=STATUS_CHOICES)
- *     completeness_rate = models.IntegerField(default=0)
- *     start_date = models.DateField()
- *     completion_date = models.DateField()
- *     created_at = models.DateTimeField(auto_now_add=True)
- *     updated_at = models.DateTimeField(auto_now=True)
- * 
- * class Task(models.Model):
- *     STATUS_CHOICES = [
- *         ('not started', 'Not Started'),
- *         ('in progress', 'In Progress'),
- *         ('completed', 'Completed'),
- *         ('delayed', 'Delayed'),
- *     ]
- *     
- *     initiative = models.ForeignKey(Initiative, related_name='tasks', on_delete=models.CASCADE)
- *     name = models.CharField(max_length=200)
- *     description = models.TextField()
- *     status = models.CharField(max_length=20, choices=STATUS_CHOICES)
- *     deadline = models.DateField()
- *     weight = models.IntegerField()
- *     percent_completed = models.IntegerField(default=0)
- *     created_at = models.DateTimeField(auto_now_add=True)
- *     updated_at = models.DateTimeField(auto_now=True)
- * 
- * Django REST Framework Serializers:
- * 
- * class TaskSerializer(serializers.ModelSerializer):
- *     class Meta:
- *         model = Task
- *         fields = '__all__'
- * 
- * class InitiativeSerializer(serializers.ModelSerializer):
- *     tasks = TaskSerializer(many=True, read_only=True)
- *     
- *     class Meta:
- *         model = Initiative
- *         fields = '__all__'
- * 
- * Django Views/API Endpoints:
- * 
- * GET    /api/initiatives/              - List all initiatives
- * POST   /api/initiatives/              - Create new initiative
- * GET    /api/initiatives/{id}/         - Get initiative details
- * PUT    /api/initiatives/{id}/         - Update initiative
- * DELETE /api/initiatives/{id}/         - Delete initiative
- * 
- * GET    /api/initiatives/{id}/tasks/   - List tasks for initiative
- * POST   /api/initiatives/{id}/tasks/   - Create task
- * PUT    /api/tasks/{id}/               - Update task
- * DELETE /api/tasks/{id}/               - Delete task
- */

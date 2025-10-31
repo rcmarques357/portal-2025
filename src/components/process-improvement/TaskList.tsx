@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Slider } from '@/components/ui/slider';
-import { Edit, Trash2, Calendar, AlertTriangle } from 'lucide-react';
+import { Edit, Trash2, Calendar, AlertTriangle, FileText } from 'lucide-react';
 import { Task, TaskStatus } from './types';
 import { format, isPast } from 'date-fns';
 
@@ -14,6 +14,7 @@ interface TaskListProps {
   onDelete: (taskId: string) => void;
   onUpdateStatus: (taskId: string, status: TaskStatus) => void;
   onUpdateProgress: (taskId: string, percentCompleted: number) => void;
+  onViewFiles: (task: Task) => void;
 }
 
 const taskStatusColors: Record<TaskStatus, string> = {
@@ -23,7 +24,7 @@ const taskStatusColors: Record<TaskStatus, string> = {
   delayed: 'bg-red-500/10 text-red-500 border-red-500/20',
 };
 
-export function TaskList({ tasks, onEdit, onDelete, onUpdateStatus, onUpdateProgress }: TaskListProps) {
+export function TaskList({ tasks, onEdit, onDelete, onUpdateStatus, onUpdateProgress, onViewFiles }: TaskListProps) {
   const isOverdue = (task: Task) => {
     return isPast(new Date(task.deadline)) && task.percentCompleted < 100;
   };
@@ -61,12 +62,30 @@ export function TaskList({ tasks, onEdit, onDelete, onUpdateStatus, onUpdateProg
                 </div>
                 <p className="text-sm text-muted-foreground">{task.description}</p>
               </div>
-              <div className="flex gap-1">
-                <Button size="icon" variant="ghost" onClick={() => onEdit(task)}>
-                  <Edit className="h-4 w-4" />
+              <div className="flex gap-2">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => onViewFiles(task)}
+                >
+                  <FileText className="h-4 w-4 mr-1" />
+                  Files ({task.files.length})
                 </Button>
-                <Button size="icon" variant="ghost" onClick={() => onDelete(task.id)}>
-                  <Trash2 className="h-4 w-4" />
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => onEdit(task)}
+                >
+                  <Edit className="h-4 w-4 mr-1" />
+                  Edit
+                </Button>
+                <Button
+                  variant="destructive"
+                  size="sm"
+                  onClick={() => onDelete(task.id)}
+                >
+                  <Trash2 className="h-4 w-4 mr-1" />
+                  Delete
                 </Button>
               </div>
             </div>

@@ -9,7 +9,9 @@ import { Initiative, Task } from './types';
 import { TaskList } from './TaskList';
 import { TaskGanttChart } from './TaskGanttChart';
 import { TaskForm } from './TaskForm';
+import { TaskFiles } from './TaskFiles';
 import { format } from 'date-fns';
+import type { TaskFile } from './types';
 
 interface InitiativeDetailProps {
   initiative: Initiative;
@@ -37,6 +39,7 @@ export function InitiativeDetail({
 }: InitiativeDetailProps) {
   const [isTaskFormOpen, setIsTaskFormOpen] = useState(false);
   const [editingTask, setEditingTask] = useState<Task | null>(null);
+  const [selectedTaskForFiles, setSelectedTaskForFiles] = useState<Task | null>(null);
 
   const handleCreateTask = (taskData: Omit<Task, 'id'>) => {
     const newTask: Task = {
@@ -72,6 +75,24 @@ export function InitiativeDetail({
   const handleQuickTaskUpdate = (taskId: string, updates: Partial<Task>) => {
     const updatedTasks = initiative.tasks.map(task =>
       task.id === taskId ? { ...task, ...updates } : task
+    );
+    onUpdate({ tasks: updatedTasks });
+  };
+
+  const handleAddFile = (taskId: string, file: Omit<TaskFile, 'id'>) => {
+    const newFile: TaskFile = {
+      ...file,
+      id: `f${Date.now()}`,
+    };
+    const updatedTasks = initiative.tasks.map(task =>
+      task.id === taskId ? { ...task, files: [...task.files, newFile] } : task
+    );
+    onUpdate({ tasks: updatedTasks });
+  };
+
+  const handleDeleteFile = (taskId: string, fileId: string) => {
+    const updatedTasks = initiative.tasks.map(task =>
+      task.id === taskId ? { ...task, files: task.files.filter(f => f.id !== fileId) } : task
     );
     onUpdate({ tasks: updatedTasks });
   };
@@ -203,6 +224,7 @@ export function InitiativeDetail({
                 onUpdateProgress={(taskId, percentCompleted) =>
                   handleQuickTaskUpdate(taskId, { percentCompleted })
                 }
+                onViewFiles={(task) => setSelectedTaskForFiles(task)}
               />
             </TabsContent>
             
@@ -231,6 +253,30 @@ export function InitiativeDetail({
             setEditingTask(null);
           }}
         />
+      )}
+
+      {selectedTaskForFiles && (
+        <div className="fixed inset-0 bg-background/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+          <div className="bg-background border rounded-lg shadow-lg max-w-2xl w-full max-h-[80vh] overflow-y-auto">
+            <div className="p-6">
+              <div className="flex items-center justify-between mb-4">
+                <h2 className="text-2xl font-bold">{selectedTaskForFiles.name}</h2>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={() => setSelectedTaskForFiles(null)}
+                >
+                  <ArrowLeft className="h-5 w-5" />
+                </Button>
+              </div>
+              <TaskFiles
+                files={selectedTaskForFiles.files}
+                onAddFile={(file) => handleAddFile(selectedTaskForFiles.id, file)}
+                onDeleteFile={(fileId) => handleDeleteFile(selectedTaskForFiles.id, fileId)}
+              />
+            </div>
+          </div>
+        </div>
       )}
     </div>
   );
