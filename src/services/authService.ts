@@ -55,32 +55,33 @@ export interface User {
   id: number;
   email: string;
   name?: string;
+  role?: 'regular' | 'editor' | 'admin';
 }
 
 export const authService = {
   // Login user and store tokens
   async login(credentials: LoginCredentials): Promise<AuthResponse> {
-    // When Django is connected, this will call:
-    // const response = await api.post<AuthResponse>('/auth/login/', credentials);
-    
-    // Mock response for now
-    throw new Error('Django backend not connected. Configure VITE_API_URL in .env');
-    
-    // Uncomment when Django is ready:
-    // const response = await api.post<AuthResponse>('/auth/login/', credentials);
-    // localStorage.setItem('auth_token', response.access);
-    // localStorage.setItem('refresh_token', response.refresh);
-    // return response;
+    try {
+      const response = await api.post<AuthResponse>('/auth/login/', credentials);
+      localStorage.setItem('auth_token', response.access);
+      localStorage.setItem('refresh_token', response.refresh);
+      return response;
+    } catch (error: any) {
+      throw new Error(error.response?.data?.detail || 'Login failed');
+    }
   },
 
   // Logout user and clear tokens
   async logout(): Promise<void> {
     const refreshToken = localStorage.getItem('refresh_token');
     
-    // When Django is connected:
-    // if (refreshToken) {
-    //   await api.post('/auth/logout/', { refresh: refreshToken });
-    // }
+    try {
+      if (refreshToken) {
+        await api.post('/auth/logout/', { refresh: refreshToken });
+      }
+    } catch (error) {
+      // Continue with logout even if API call fails
+    }
     
     localStorage.removeItem('auth_token');
     localStorage.removeItem('refresh_token');
@@ -94,22 +95,16 @@ export const authService = {
       throw new Error('No refresh token available');
     }
 
-    // When Django is connected:
-    // const response = await api.post<{ access: string }>('/auth/refresh/', {
-    //   refresh: refreshToken,
-    // });
-    // localStorage.setItem('auth_token', response.access);
-    // return response.access;
-    
-    throw new Error('Django backend not connected');
+    const response = await api.post<{ access: string }>('/auth/refresh/', {
+      refresh: refreshToken,
+    });
+    localStorage.setItem('auth_token', response.access);
+    return response.access;
   },
 
   // Get current user
   async getCurrentUser(): Promise<User> {
-    // When Django is connected:
-    // return await api.get<User>('/auth/user/');
-    
-    throw new Error('Django backend not connected');
+    return await api.get<User>('/auth/user/');
   },
 
   // Check if user is authenticated
